@@ -1,0 +1,167 @@
+.portfolio {
+    background-color: var(--color-grey-light-2);
+    grid-column: full-start / full-end;
+
+    padding: 5rem 4rem;
+
+    display: grid;
+    grid-template-rows: 6rem 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 4rem;
+    justify-items: space-around;
+
+    &__title {
+        grid-column: 1 / -1;
+
+        text-align: center;
+    }
+}
+
+.card {
+    perspective: 120rem;
+    -moz-perspective: 120rem;
+    position: relative;
+    height: 48rem;
+
+    &__side {
+        height: 48rem;
+        transition: all .8s ease;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 1.5rem 4rem rgba(#000, .15);
+
+        &--front {
+            background-color: #fff;
+        }
+
+        &--back {
+            transform: rotateY(180deg);
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, var(--color-orange-light), var(--color-orange-dark));
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, var(--color-green-light), var(--color-green-dark));
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, var(--color-blue-light), var(--color-blue-dark));
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+        transform: rotateY(0);
+    }
+
+    &__picture {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, var(--color-orange-light), var(--color-orange-dark)),
+            url(../img/nat-5.jpg);
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, var(--color-green-light), var(--color-green-dark)),
+            url(../img/nat-6.jpg);
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, var(--color-blue-light), var(--color-blue-dark)),
+            url(../img/nat-7.jpg);
+        }
+    }
+
+    &__heading {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: #fff;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+        z-index: 10;
+    }
+
+    &__heading-span {
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        &--1 {
+            background-image: linear-gradient(to right bottom, rgba(var(--color-orange-light), .85), rgba(var(--color-orange-dark), .85));
+        }
+
+        &--2 {
+            background-image: linear-gradient(to right bottom, rgba(var(--color-green-light), .85), rgba(var(--color-green-dark), .85));
+        }
+
+        &--3 {
+            background-image: linear-gradient(to right bottom, rgba(var(--color-blue-light), .85), rgba(var(--color-blue-dark), .85));
+        }
+    }
+
+    &__details {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin: 0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid var(--color-grey-light-2);
+                }
+            }
+        }
+    }
+
+    &__cta {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    &__price-box {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 8rem;
+    }
+
+    &__price-only {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    &__price-value {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+}
